@@ -656,7 +656,7 @@ body, .app-container {
 
 /* LinkedIn Blue */
 .linkedin {
-  background-color: #0077b5;
+  background-color: transparent;
   border: 1px solid #0077b5;
 }
 
@@ -667,8 +667,8 @@ body, .app-container {
 
 /* GitHub Dark Gray/Black */
 .github {
-  background-color: #333;
-  border: 1px solid #333;
+  background-color: transparent;
+  border: 1px solid #0077b5;
 }
 
 .github:hover {
