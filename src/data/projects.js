@@ -7,7 +7,7 @@ export const projectData = [
         solution: "Developed a digital inventory system that allows for instant CRUD operations, ensuring the database reflects the current stock in real-time.",
         challenges: "Designing a scalable MongoDB schema to handle relationships between authors and books while mastering asynchronous API patterns in Node.js.",
         tech: ["MongoDB", "Express", "React", "Node","Vercel","GitHub","MongoDB Atlas"],
-        liveLink: "https://mern-library-project-navy.vercel.app/",
+        liveLink: "https://mern-library-project1.vercel.app/",
         github: "https://github.com/hramlk99k/mern-library-project"
     },
     {
