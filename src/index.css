@@ -1,13 +1,137 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* --- THEME VARIABLES --- */
+:root {
+  /* Core Professional Palette (Used in both modes) */
+  --primary-blue: #1e40af;    /* Deep Navy Blue */
+  --secondary-gray: #64748b;  /* Slate Gray */
+  --accent-blue: #3b82f6;     /* Brighter Interaction Blue */
+  
+  /* Light Mode Colors */
+  --bg-app: #f1f5f9;          /* Light Slate Background */
+  --text-main: #1e293b;       /* Dark Navy Text */
+  --card-bg: #ffffff;
+  --footer-bg: #e2e8f0;       /* Darker Gray for Footer separation */
+  --footer-text: #334155;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dark-theme {
+  /* Dark Mode Colors */
+  --bg-app: #0f172a;          /* Deep Navy Background */
+  --text-main: #f1f5f9;       /* Off-White Text (FIXES INVISIBILITY) */
+  --card-bg: #1e293b;         /* Dark Slate Card */
+  --footer-bg: #020617;       /* Midnight Black for Footer separation */
+  --footer-text: #94a3b8;
+}
+
+/* --- BASE STYLES --- */
+body, .app-container {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- THEME TOGGLE BUTTON --- */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-blue);
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+/* --- CV BUTTON (EURO PASS) --- */
+.cv-button {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: #ffffff !important; /* Force white even if parent is different */
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(30, 64, 175, 0.2);
+}
+
+.cv-button:hover {
+  background-color: var(--accent-blue);
+  transform: translateY(-3px); /* Hover lift effect */
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* --- PROJECT GRID & CARDS --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid rgba(100, 116, 139, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- FOOTER (SEPARATED) --- */
+.main-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: auto; /* Pushes to bottom */
+  border-top: 1px solid var(--secondary-gray);
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.main-footer h2 {
+  color: var(--primary-blue);
+  margin-bottom: 12px;
+  font-size: 1.8rem;
+}
+
+.main-footer a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.main-footer a:hover {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
+/* --- UTILITIES --- */
+h1, h2, h3 {
+  color: var(--text-main);
+  margin-top: 0;
 }

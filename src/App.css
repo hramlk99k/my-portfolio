@@ -1,38 +1,694 @@
-.App {
+/* --- THEME VARIABLES --- */
+:root {
+  --primary-blue: #1e40af;    /* Professional Navy */
+  --secondary-gray: #64748b;  /* Slate Gray */
+  --btn-hover: #1d4ed8;       /* Slightly lighter blue for hover */
+  
+  /* Light Mode Colors */
+  --bg-main: #f8fafc;
+  --text-main: #1e293b;
+  --card-bg: #ffffff;
+  --footer-bg: #cbd5e1;       /* Gray background for footer (Separated) */
+}
+
+.dark-theme {
+  /* Dark Mode Colors */
+  --bg-main: #0f172a;
+  --text-main: #f1f5f9;       /* Fixes invisible text */
+  --card-bg: #1e293b;
+  --footer-bg: #020617;       /* Darker Navy for footer (Separated) */
+}
+
+/* --- CV BUTTON & HOVER --- */
+.cv-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-blue); /* Professional Blue */
+  color: white !important;               /* Forces white text */
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;             /* Smooth hover transition */
+  border: none;
+  cursor: pointer;
+}
+
+.cv-button:hover {
+  background-color: var(--btn-hover);    /* Changes color on hover */
+  transform: translateY(-3px);           /* Lifts button up */
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+/* --- FOOTER SEPARATION --- */
+.main-footer {
+  background-color: var(--footer-bg);    /* Different color from body */
+  color: var(--text-main);
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 80px;                      /* Pushes footer away from content */
+  border-top: 1px solid var(--secondary-gray); /* Thin line for separation */
+}
+
+.main-footer h2 {
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.footer-email a {
+  color: var(--primary-blue);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.footer-email a:hover {
+  text-decoration: underline;
+}
+
+/* --- GLOBAL TEXT FIX --- */
+body, .app-container {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+/* --- PROJECT CARD INTERNAL STYLES --- */
+.project-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--secondary-gray);
+  margin-bottom: 20px;
+  min-height: 60px; /* Keeps cards uniform height */
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.tech-badge {
+  background-color: rgba(30, 64, 175, 0.1); /* Very light blue */
+  color: var(--primary-blue);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid rgba(30, 64, 175, 0.2);
+}
+
+.card-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto; /* Pushes links to the bottom of the card */
+}
+
+/* Reusing your blue button style but smaller for cards */
+.cv-button.small {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.github-link {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.github-link:hover {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+/* --- PROJECT SECTION STYLES --- */
+.project-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;      /* Centers the text */
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 50px;
+  position: relative;      /* Needed for the decorative underline */
+}
+
+/* Optional: Adds a professional blue underline under the centered title */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  margin: 10px auto 0;    /* Centers the underline */
+  border-radius: 2px;
+}
+
+/* --- PROJECT GRID REFINEMENT --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+/* Ensure the ProjectCard handles its own spacing internally */
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(100, 116, 139, 0.1);
+  display: flex;
+  flex-direction: column; /* Allows content to push footer links to bottom */
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* --- HERO SECTION (MATCHED TO FOOTER) --- */
+.hero-section {
+  background-color: var(--footer-bg); /* Matches the Footer theme */
+  padding: 50px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--secondary-gray); /* Optional: thin line to separate from white body */
+  transition: background-color 0.3s ease;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  opacity: 0.9;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+/* Ensure the title stands out on the themed background */
+.dark-theme .hero-title {
+  color: #ffffff;
+}
+
+.light-theme .hero-title {
+  color: var(--primary-blue); /* Gives the name a pop of professional blue */
+}
+.details-toggle {
+  background: none;
+  border: none;
+  color: var(--primary-blue);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.deep-dive-content {
+  background-color: var(--bg-app);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  border: 1px dashed var(--secondary-gray);
+  animation: fadeIn 0.3s ease-in;
+}
+
+.deep-dive-content p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.deep-dive-content strong {
+  color: var(--primary-blue);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.skills-section {
+  padding: 80px 20px;
+  background-color: var(--bg-app); /* Keeps the middle section white/light */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skill-category h3 {
+  color: var(--primary-blue);
+  border-bottom: 2px solid var(--secondary-gray);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-item {
+  background: var(--card-bg);
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  color: var(--text-main);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border: 1px solid rgba(100, 116, 139, 0.1);
+  transition: transform 0.2s;
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+/* --- 3D CARD FLIP --- */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 450px; /* Increased height to fit deep dive text */
+  perspective: 1000px; /* Creates the 3D depth */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+/* This class is added via React state */
+.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(100, 116, 139, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.flip-card-front {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+}
+
+.flip-card-back {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  transform: rotateY(180deg);
+  text-align: left; /* Better readability for long text */
+  overflow-y: auto; /* Adds scroll if text is too long */
+}
+
+.deep-dive-text p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.back-btn {
+  margin-top: 15px;
+  align-self: center;
+  text-decoration: none;
+  border: 1px solid var(--primary-blue);
+  padding: 5px 15px;
+  border-radius: 4px;
+}
+.scroll-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: var(--primary-blue);
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-blue);
+}
+/* --- SKELETON SHIMMER EFFECT --- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  border: 1px solid rgba(100, 116, 139, 0.1);
+  pointer-events: none; /* Disable interaction while loading */
+}
+
+/* The Shimmer Layer */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Skeleton Shapes */
+.skeleton-title, .skeleton-text, .skeleton-badge, .skeleton-btn {
+  background: var(--bg-app); /* Use the light gray background */
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.skeleton-title { height: 28px; width: 70%; }
+.skeleton-text { height: 14px; width: 100%; margin-bottom: 8px; }
+.skeleton-text.short { width: 40%; }
+
+.skeleton-tech-stack { display: flex; gap: 8px; margin-top: 15px; }
+.skeleton-badge { height: 24px; width: 50px; }
+
+.skeleton-links { display: flex; gap: 15px; margin-top: auto; }
+.skeleton-btn { height: 35px; width: 100px; }
+.skeleton-btn.text { width: 60px; height: 20px; align-self: center; }
+/* --- CONTACT SECTION --- */
+.contact-section {
+  padding: 100px 20px;
+  background-color: var(--footer-bg); /* Matches Hero/Footer */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contact-subtitle {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--text-main);
+  opacity: 0.8;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.contact-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg); /* White in light mode, Dark Slate in dark mode */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(100, 116, 139, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contact-form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+  text-align: left; /* Labels should be left-aligned */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  font-size: 0.9rem;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--secondary-gray);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: inherit;
+  box-sizing: border-box; /* Prevents input from overflowing */
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+.error-text {
+  color: #ef4444; /* Bright Red */
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: block;
+  font-weight: 500;
+}
+
+.success-msg {
+  color: #10b981; /* Emerald Green */
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.error-msg {
+  color: #ef4444;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+/* Gray out the button while it's sending */
+.cv-button:disabled {
+  background-color: var(--secondary-gray);
+  cursor: not-allowed;
+  transform: none;
+}
+/* --- DIRECT CONTACT STYLES --- */
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.email-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.copy-btn {
+  background: none;
+  border: 1px dashed var(--secondary-gray);
+  color: var(--text-main);
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.copy-btn:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--secondary-gray);
+  font-size: 0.8rem;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--secondary-gray);
+  opacity: 0.3;
+}
+
+.divider span {
+  padding: 0 10px;
+}
+
+.social-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+}
+
+.social-card {
+  background: var(--bg-app);
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.social-card:hover {
+  border-color: var(--primary-blue);
+  transform: translateY(-3px);
+  background: var(--card-bg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.social-card .icon {
+  background: var(--primary-blue);
+  color: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.social-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.social-info strong {
+  font-size: 0.95rem;
+}
+
+.social-info span {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Responsive adjustment */
+@media (max-width: 500px) {
+  .social-links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- NEW PROFESSIONAL FOOTER --- */
+.main-footer {
+  background-color: var(--footer-bg); /* Use that dark navy/slate */
+  color: white;
+  padding: 60px 20px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-content p {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* LinkedIn Blue */
+.linkedin {
+  background-color: #0077b5;
+  border: 1px solid #0077b5;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.linkedin:hover {
+  background-color: transparent;
+  color: #0077b5;
+}
+
+/* GitHub Dark Gray/Black */
+.github {
+  background-color: #333;
+  border: 1px solid #333;
+}
+
+.github:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.tech-tag {
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.social-btn .icon {
+  font-weight: 800;
+  font-size: 1.1rem;
 }
