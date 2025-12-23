@@ -12,15 +12,16 @@
 }
 
 .dark-theme {
-  /* Dark Mode Colors */
   --bg-main: #0f172a;
-  --text-main: #f1f5f9;       /* Fixes invisible text */
+  --text-main: #f1f5f9;
   --card-bg: #1e293b;
-  --footer-bg: #020617;   
-  --tech-bg: rgba(51, 65, 85, 0.5); /* Muted semi-transparent slate */
-  --tech-text: #94a3b8;           /* Muted text color */
-  --tech-border: #334155;         /* Subtle border */
-  --accent: #38bdf8;    /* Darker Navy for footer (Separated) */
+  --footer-bg: #020617;
+  
+  /* FIX THESE FOR THE BOXES */
+  --tech-bg: rgba(30, 64, 175, 0.2); /* Deeper blue tint for dark mode */
+  --tech-text: #38bdf8;             /* Bright sky blue for text */
+  --tech-border: #334155;           /* Slate border */
+  --accent: #38bdf8;
 }
 
 /* --- CV BUTTON & HOVER --- */
@@ -36,7 +37,13 @@
   border: none;
   cursor: pointer;
 }
-
+.card-links {
+  display: flex;
+  align-items: center; /* This centers them vertically relative to each other */
+  gap: 20px;           /* Proper spacing between button and link */
+  margin-top: auto;    /* Pushes links to the bottom of the card */
+  padding-top: 10px;
+}
 .cv-button:hover {
   background-color: var(--btn-hover);    /* Changes color on hover */
   transform: translateY(-3px);           /* Lifts button up */
@@ -89,16 +96,6 @@ body, .app-container {
   margin-bottom: 25px;
 }
 
-.tech-badge {
-  background-color: rgba(30, 64, 175, 0.1); /* Very light blue */
-  color: var(--primary-blue);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 1px solid rgba(30, 64, 175, 0.2);
-}
 /* Container for your tech chips */
 .tech-container {
   display: flex;
@@ -108,29 +105,31 @@ body, .app-container {
 }
 
 /* The individual tech badge */
-.tech-badge {
-  background-color: var(--tech-bg);
-  color: var(--text-main); /* Keep text readable */
-  border: 1px solid var(--tech-border);
-  padding: 4px 10px;
+/* This replaces ALL .tech-badge and .skill-item blocks */
+.tech-badge, .skill-item {
+  display: inline-block;
+  padding: 6px 14px;
   border-radius: 6px;
   font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  
+  /* Use variables with fallbacks for Light Mode */
+  background-color: var(--tech-bg, rgba(30, 64, 175, 0.1)); 
+  color: var(--accent, var(--primary-blue));
+  border: 1px solid var(--tech-border, rgba(30, 64, 175, 0.2));
+  
+  cursor: default;
 }
 
-/* Hover effect: Subtle glow instead of changing the whole color */
-.tech-badge:hover {
-  border-color: var(--accent);
-  background-color: rgba(56, 189, 248, 0.1); /* Light blue tint */
-  color: var(--accent);
+/* Hover Effect for the boxes */
+.tech-badge:hover, .skill-item:hover {
   transform: translateY(-2px);
-}
-.card-links {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: auto; /* Pushes links to the bottom of the card */
+  border-color: var(--accent, var(--primary-blue));
+  background-color: rgba(56, 189, 248, 0.15); /* Subtle glow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Reusing your blue button style but smaller for cards */
@@ -142,9 +141,12 @@ body, .app-container {
 .github-link {
   color: var(--text-main);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.9rem;   /* Slightly larger for better balance */
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
   transition: color 0.2s;
+  height: fit-content;
 }
 
 .github-link:hover {
