@@ -10,7 +10,7 @@ const Hero = () => {
         </p>
         
         <a 
-          href="/resume.pdf" 
+          href="/Hira_Malik_CV.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cv-button"
