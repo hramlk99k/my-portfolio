@@ -16,7 +16,11 @@
   --bg-main: #0f172a;
   --text-main: #f1f5f9;       /* Fixes invisible text */
   --card-bg: #1e293b;
-  --footer-bg: #020617;       /* Darker Navy for footer (Separated) */
+  --footer-bg: #020617;   
+  --tech-bg: rgba(51, 65, 85, 0.5); /* Muted semi-transparent slate */
+  --tech-text: #94a3b8;           /* Muted text color */
+  --tech-border: #334155;         /* Subtle border */
+  --accent: #38bdf8;    /* Darker Navy for footer (Separated) */
 }
 
 /* --- CV BUTTON & HOVER --- */
@@ -95,7 +99,33 @@ body, .app-container {
   text-transform: uppercase;
   border: 1px solid rgba(30, 64, 175, 0.2);
 }
+/* Container for your tech chips */
+.tech-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
 
+/* The individual tech badge */
+.tech-badge {
+  background-color: var(--tech-bg);
+  color: var(--text-main); /* Keep text readable */
+  border: 1px solid var(--tech-border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect: Subtle glow instead of changing the whole color */
+.tech-badge:hover {
+  border-color: var(--accent);
+  background-color: rgba(56, 189, 248, 0.1); /* Light blue tint */
+  color: var(--accent);
+  transform: translateY(-2px);
+}
 .card-links {
   display: flex;
   align-items: center;
