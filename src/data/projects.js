@@ -53,8 +53,8 @@ export const projectData = [
   solution: "Engineered a mobile-first responsive web application using React and Framer Motion. Implemented a Flexbox-driven UI and coordinate-based collision detection to ensure a seamless experience across all screen orientations.",
   challenges: "Solving viewport-locking issues and CSS 'Safe Area' overlaps on mobile browsers. Migrated from legacy HTML5 Drag APIs to a custom pointer-event system to maintain 60fps performance and 100% tactile accuracy on touch screens.",
   tech: ["React 19", "Framer Motion", "CSS3 (Flexbox/Media Queries)", "Web Audio API", "Vite", "Vercel"],
-  liveLink: "https://waste-sorter-react.vercel.app/",
-  github: "https://github.com/hramlk99k/waste-sorter-react"
+  liveLink: "https://waste-sorter-game.vercel.app/",
+  github: "https://github.com/hramlk99k/waste-sorter-game"
 },
     {
         id: 6,
