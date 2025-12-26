@@ -198,7 +198,12 @@ body, .app-container {
   flex-direction: column; /* Allows content to push footer links to bottom */
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; 
+  overflow: hidden;
+  z-index: 1;
 }
+
+
 /* --- HERO SECTION (MATCHED TO FOOTER) --- */
 .hero-section {
   background-color: var(--footer-bg); /* Matches the Footer theme */

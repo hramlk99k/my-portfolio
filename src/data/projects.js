@@ -45,8 +45,19 @@ export const projectData = [
         liveLink: "https://carbon-tracking-app.vercel.app/",
         github: "https://github.com/hramlk99k/carbon-tracking-app"
     },
+{
+  id: 5,
+  title: "Trash Cracker: Gamified Eco-Logic",
+  description: "A high-fidelity educational platform designed to gamify circular economy and waste management for children.",
+  problem: "Traditional environmental education often lacks the interactive engagement and responsive accessibility needed to build real-world sorting reflexes on mobile devices.",
+  solution: "Engineered a mobile-first responsive web application using React and Framer Motion. Implemented a Flexbox-driven UI and coordinate-based collision detection to ensure a seamless experience across all screen orientations.",
+  challenges: "Solving viewport-locking issues and CSS 'Safe Area' overlaps on mobile browsers. Migrated from legacy HTML5 Drag APIs to a custom pointer-event system to maintain 60fps performance and 100% tactile accuracy on touch screens.",
+  tech: ["React 19", "Framer Motion", "CSS3 (Flexbox/Media Queries)", "Web Audio API", "Vite", "Vercel"],
+  liveLink: "https://waste-sorter-react.vercel.app/",
+  github: "https://github.com/hramlk99k/waste-sorter-react"
+},
     {
-        id: 5,
+        id: 6,
         title: "Collaborative Whiteboard",
         description: "A high-performance interactive tool using Canvas API and React hooks. Focused on optimizing rendering cycles to ensure smooth, lag-free user input and real-time visual updates.",
         problem: "Collaborative digital note-taking often lacks version control, leading to accidental data loss during brainstorming sessions.",
@@ -57,7 +68,7 @@ export const projectData = [
         github: "https://github.com/hramlk99k/scrawl-whiteboard"
     },
     {
-        id: 6,
+        id: 7,
         title: "Personal Information Form",
         description: "A personal information form built on React to showcase CRUD.",
         problem: "Static forms lack dynamic validation and immediate data persistence, resulting in a poor user experience.",
@@ -68,7 +79,7 @@ export const projectData = [
         github: "https://github.com/hramlk99k/Form"
     },
     {
-        id: 7,
+        id: 8,
         title: "To-Do List",
         description: "A frontend to-do list designed to showcase CRUD.",
         problem: "User productivity is often hindered by overly complex task management apps that lack a clean, lightweight interface.",
@@ -79,7 +90,7 @@ export const projectData = [
         github: "https://github.com/hramlk99k/to-do"
     },
     {
-        id: 8,
+        id: 9,
         title: "Calculator",
         description: "An interactive calculator.",
         problem: "Standard browser-based calculators often lack responsive design and handle complex logic edge-cases poorly.",

@@ -2,9 +2,9 @@ import React from 'react';
 
 const Skills = () => {
   const skills = [
-    { category: "Frontend", items: ["React", "JavaScript", "TypeScript", "HTML/CSS", "Tailwind CSS"] },
+    { category: "Frontend", items: ["React", "React 19","JavaScript", "TypeScript", "HTML/CSS", "Tailwind CSS","Framer motion","Web Audio API"] },
     { category: "Backend", items: ["Node.js", "Express", "MongoDB", "REST APIs"] },
-    { category: "Tools", items: ["Git", "GitHub", "Vercel","Render", "Postman", "Agile/Scrum","MongoDB Atlas","MongoDB compass","Visual Studio Code"] }
+    { category: "Tools", items: ["Git", "GitHub", "Vercel","Render", "Vite","Postman", "Agile/Scrum","MongoDB Atlas","MongoDB compass","Visual Studio Code"] }
   ];
 
   return (
