@@ -455,142 +455,11 @@ body, .app-container {
 .skeleton-links { display: flex; gap: 15px; margin-top: auto; }
 .skeleton-btn { height: 35px; width: 100px; }
 .skeleton-btn.text { width: 60px; height: 20px; align-self: center; }
-/* --- CONTACT SECTION --- */
-.contact-section {
-  padding: 100px 20px;
-  background-color: var(--footer-bg); /* Matches Hero/Footer */
-  text-align: center;
-}
 
-.contact-subtitle {
-  max-width: 600px;
-  margin: 0 auto 40px;
-  color: var(--text-main);
-  opacity: 0.8;
-  line-height: 1.6;
-}
 
-.contact-card {
-  max-width: 600px;
-  margin: 0 auto;
-  background: var(--card-bg); /* White in light mode, Dark Slate in dark mode */
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(100, 116, 139, 0.1);
-}
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: left; /* Labels should be left-aligned */
-}
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: var(--primary-blue);
-  font-size: 0.9rem;
-}
 
-.contact-form input, 
-.contact-form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid var(--secondary-gray);
-  background-color: var(--bg-app);
-  color: var(--text-main);
-  font-family: inherit;
-  box-sizing: border-box; /* Prevents input from overflowing */
-}
-
-.contact-form input:focus, 
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
-}
-.error-text {
-  color: #ef4444; /* Bright Red */
-  font-size: 0.8rem;
-  margin-top: 5px;
-  display: block;
-  font-weight: 500;
-}
-
-.success-msg {
-  color: #10b981; /* Emerald Green */
-  margin-top: 15px;
-  font-weight: 600;
-}
-
-.error-msg {
-  color: #ef4444;
-  margin-top: 15px;
-  font-weight: 600;
-}
-
-/* Gray out the button while it's sending */
-.cv-button:disabled {
-  background-color: var(--secondary-gray);
-  cursor: not-allowed;
-  transform: none;
-}
-/* --- DIRECT CONTACT STYLES --- */
-.contact-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.email-box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 300px;
-}
-
-.copy-btn {
-  background: none;
-  border: 1px dashed var(--secondary-gray);
-  color: var(--text-main);
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: all 0.2s;
-}
-
-.copy-btn:hover {
-  border-color: var(--primary-blue);
-  color: var(--primary-blue);
-}
-
-.divider {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: var(--secondary-gray);
-  font-size: 0.8rem;
-}
-
-.divider::before, .divider::after {
-  content: '';
-  flex: 1;
-  border-bottom: 1px solid var(--secondary-gray);
-  opacity: 0.3;
-}
-
-.divider span {
-  padding: 0 10px;
-}
 
 .social-links-grid {
   display: grid;
@@ -675,7 +544,7 @@ body, .app-container {
 .footer-socials {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   margin-bottom: 40px;
 }
 

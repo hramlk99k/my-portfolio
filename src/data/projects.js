@@ -1,15 +1,15 @@
 export const projectData = [
     {
-        id: 1,
-        title: "Library Manager",
-        description: "A full-stack MERN application for managing book inventories with real-time updates and MongoDB integration.",
-        problem: "Traditional library logs are difficult to scale, often leading to inconsistent data and slow search times for specific titles.",
-        solution: "Developed a digital inventory system that allows for instant CRUD operations, ensuring the database reflects the current stock in real-time.",
-        challenges: "Designing a scalable MongoDB schema to handle relationships between authors and books while mastering asynchronous API patterns in Node.js.",
-        tech: ["MongoDB", "Express", "React", "Node","Vercel","GitHub","MongoDB Atlas"],
-        liveLink: "https://mern-library-project1.vercel.app/",
-        github: "https://github.com/hramlk99k/mern-library-project"
-    },
+  id: 2,
+  title: "Silent Queue",
+  description: "A specialized mobile-first MERN application for real-time facility management and laundry room scheduling.",
+  problem: "University students or apartment residents often waste time checking laundry room availability in person, only to find all machines occupied.",
+  solution: "Built a sleek, neon-themed mobile interface that allows users to view real-time status and reserve slots, synced across all devices via a cloud backend.",
+  challenges: "Implementing a 'Mobile-to-Web' bridge using React Native Web and Expo, and ensuring the heavy neon UI effects remained performant during state transitions.",
+  tech: ["React Native (Expo)", "Node.js", "Express", "MongoDB Atlas", "Render", "Vercel"],
+  liveLink: "/demo.html",
+  github: "https://github.com/hramlk99k/silent-queue-frontend"
+},
     {
         id: 2,
         title: "TECH-SERVICES-CRM",
@@ -56,8 +56,19 @@ export const projectData = [
   liveLink: "https://waste-sorter-game.vercel.app/",
   github: "https://github.com/hramlk99k/waste-sorter-game"
 },
-    {
+ {
         id: 6,
+        title: "Library Manager",
+        description: "A full-stack MERN application for managing book inventories with real-time updates and MongoDB integration.",
+        problem: "Traditional library logs are difficult to scale, often leading to inconsistent data and slow search times for specific titles.",
+        solution: "Developed a digital inventory system that allows for instant CRUD operations, ensuring the database reflects the current stock in real-time.",
+        challenges: "Designing a scalable MongoDB schema to handle relationships between authors and books while mastering asynchronous API patterns in Node.js.",
+        tech: ["MongoDB", "Express", "React", "Node","Vercel","GitHub","MongoDB Atlas"],
+        liveLink: "https://mern-library-project1.vercel.app/",
+        github: "https://github.com/hramlk99k/mern-library-project"
+    },
+    {
+        id: 7,
         title: "Collaborative Whiteboard",
         description: "A high-performance interactive tool using Canvas API and React hooks. Focused on optimizing rendering cycles to ensure smooth, lag-free user input and real-time visual updates.",
         problem: "Collaborative digital note-taking often lacks version control, leading to accidental data loss during brainstorming sessions.",
@@ -68,7 +79,7 @@ export const projectData = [
         github: "https://github.com/hramlk99k/scrawl-whiteboard"
     },
     {
-        id: 7,
+        id: 8,
         title: "Personal Information Form",
         description: "A personal information form built on React to showcase CRUD.",
         problem: "Static forms lack dynamic validation and immediate data persistence, resulting in a poor user experience.",
@@ -79,7 +90,7 @@ export const projectData = [
         github: "https://github.com/hramlk99k/Form"
     },
     {
-        id: 8,
+        id: 9,
         title: "To-Do List",
         description: "A frontend to-do list designed to showcase CRUD.",
         problem: "User productivity is often hindered by overly complex task management apps that lack a clean, lightweight interface.",
@@ -90,7 +101,7 @@ export const projectData = [
         github: "https://github.com/hramlk99k/to-do"
     },
     {
-        id: 9,
+        id: 10,
         title: "Calculator",
         description: "An interactive calculator.",
         problem: "Standard browser-based calculators often lack responsive design and handle complex logic edge-cases poorly.",
